@@ -24,6 +24,7 @@ Update the composer.json file in your project with the name and version of the e
 
 Run theses commands in the directory of your Magento install
 
+`php bin/magento setup:di:compile`
 `php bin/magento setup:upgrade`
 `php bin/magento cache:clean`
 
