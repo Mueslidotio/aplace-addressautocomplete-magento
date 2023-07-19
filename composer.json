@@ -1,0 +1,26 @@
+{
+    "name": "aplace/addressautocomplete",
+    "description": "Address autocomplete Magento 2 module using APlace.io service in the checkout form",
+    "require": {
+        "php": ">=5.6",
+        "phpseclib/phpseclib": "^3.0"
+    },
+    "license": [
+        "MIT"
+    ],
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Aplace"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Aplace\\AddressAutocomplete\\": ""
+        }
+    }
+}

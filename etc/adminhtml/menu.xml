@@ -1,0 +1,21 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+
+        <add id="Aplace_AddressAutocomplete::content_elements"
+            title="Aplace Address Autocomplete"
+            translate="title"
+            module="Aplace_AddressAutocomplete"
+            parent="Magento_Backend::content"
+            sortOrder="10"
+            resource="Magento_Backend::admin" />
+        <add id="Aplace_AddressAutocomplete::config"
+            title="Configuration"
+            translate="title"
+            module="Aplace_AddressAutocomplete"
+            parent="Aplace_AddressAutocomplete::content_elements"
+            sortOrder="0"
+            action="aplace/config"
+            resource="Magento_Backend::admin" />
+    </menu>
+</config>

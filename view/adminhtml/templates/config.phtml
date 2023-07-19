@@ -1,0 +1,216 @@
+<style>
+    .main-form {
+        width: 100%;
+        max-width: 720px;
+        padding: 30px 50px;
+        background: #fff;
+        border-radius: 5px;
+        box-sizing: border-box;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container {
+        margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        height: 38px;
+        padding: 0 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 30px;
+        color: #555;
+        outline: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 16px;
+        color: #555;
+    }
+
+    .description {
+        margin-top: 5px;
+        font-size: 12px;
+        color: #999;
+    }
+
+    .btn-orange {
+        background-color: #EC793E;
+        color: #fff;
+    }
+
+    .btn-orange:hover {
+        background-color: #D66A2B;
+    }
+
+    .btn-gray {
+        background-color: #eee;
+        color: #333;
+    }
+
+    .btn-gray:hover {
+        background-color: #999;
+    }
+
+    .btn {
+        transition: all 0.3s ease-in-out;
+        display: inline-block;
+        padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        min-width: 120px;
+    }
+
+    .actions-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .actions-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .control-checkbox {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .ml-1 {
+        margin-left: 4px;
+    }
+
+    .ml-2 {
+        margin-left: 8px;
+    }
+
+    .mb-0 {
+        margin-bottom: 0px;
+    }
+</style>
+<form class="main-form" action="<?php echo $block->getUrl('aplace/config/save'); ?>" method="GET" autocomplete="off">
+    <div class="form-container">
+        <div class="control-checkbox">
+            <input type="checkbox" name="live_mode" value="live" <?php if ($block->getConfigValue('live_mode') === '1') { echo "checked"; } ?>/>
+            <label class="ml-2 mb-0" for="live_mode">
+                <span><?php echo __('Live mode') ?></span>
+            </label>
+        </div>
+        <div class="description">
+            <span><?php echo __('Enable autocompletion on checkout page') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('API Key') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="api_key" value="<?php echo $block->getConfigValue('api_key'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Get your API key from https://aplace.io/en/dashboard/tokens') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('Encryption key') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="encryption_key" value="<?php echo $block->getConfigValue('encryption_key'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Get your Encryption key from https://aplace.io/en/dashboard/tokens') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('Address field name') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="field_address_name" value="<?php echo $block->getConfigValue('field_address_name'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Set the "name" attribute of the address field in the shipping information cart form (default: "street[0]")') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('City field name') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="field_city_name" value="<?php echo $block->getConfigValue('field_city_name'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Set the "name" attribute of the city field in the shipping information cart form (default: "city")') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __(' Post code field name') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="field_postcode_name" value="<?php echo $block->getConfigValue('field_postcode_name'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Set the "name" attribute of the post code field in the shipping information cart form (default: "postcode")') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('Country select name') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="field_country_name" value="<?php echo $block->getConfigValue('field_country_name'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Set the "name" attribute of the country field in the shipping information cart form (default: "country_id")') ?></span>
+        </div>
+    </div>
+
+    <div class="form-container">
+        <label class="label">
+            <span><?php echo __('State select name') ?></span>
+        </label>
+        <div class="control">
+            <input type="text" name="field_region_name" value="<?php echo $block->getConfigValue('field_region_name'); ?>"/>
+        </div>
+        <div class="description">
+            <span><?php echo __('Set the "name" attribute of the state field in the shipping information cart form (default: "region_id")') ?></span>
+        </div>
+    </div>
+
+    <div class="actions-container">
+        <div class="actions-left">
+            <button class="btn btn-orange" type="submit"><?php echo __('Save') ?></button>
+            <a href="<?php echo $block->getUrl('aplace/config/defaultvalues'); ?>" class="btn btn-gray ml-1"><?php echo __('Default values') ?></a>
+        </div>
+        <a target="_blank" href="https://aplace.io/<?php echo $block->getDefaultLang();?>/dashboard/home"><?php echo __('APlace Dashboard') ?></a>
+    </div>
+</form>

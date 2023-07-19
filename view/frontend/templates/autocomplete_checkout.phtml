@@ -1,0 +1,13 @@
+<?php if ($block->getLiveMode()) { ?>
+<script type="text/javascript" src="https://aplace.io/<?php echo $block->getDefaultLang() ?>/scripts/autocomplete.js?key=<?php echo $block->getAccessToken() ?>"></script>
+<script type="text/javascript">
+    require([
+        'jquery', 
+        'Aplace_AddressAutocomplete/js/autocomplete_checkout'
+    ], function($, initAutocomplete) {
+        $(document).ready(function () {
+            initAutocomplete(<?php echo json_encode($block->getAplaceAddressAutocompleteData()); ?>);
+        });
+    });
+</script>
+<?php } ?>
